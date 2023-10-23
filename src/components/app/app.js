@@ -14,7 +14,7 @@ class App extends Component {
                     {name: 'negativePositive', operator: ''}, 
                     {name: 'percents', operator: '%'}, 
                     {name: 'divide', operator: '/'}, 
-                    {name: 'seven:', operator: '7'}, 
+                    {name: 'seven', operator: '7'}, 
                     {name: 'eight', operator: '8'}, 
                     {name: 'nine', operator: '9'}, 
                     {name: 'multiply', operator: '*'}, 
@@ -30,43 +30,30 @@ class App extends Component {
                     {name: 'dot', operator: '.'}, 
                     {name: 'equals', operator: ''}
             ],
-            dataTrial: [
-                'one',
-                'two',
-                'three'
-            ],
             displayOperations: '0'
         }
     }
     
-    // btnCreate = ({data}) => {
-    //     let btnGroup = <div></div>;
-    //     data.forEach(element => {
-    //         btnGroup = <button>{element.operator}</button>
-    //         return btnGroup;
-    //     });
-    // }
-
-    // getNames = ({data}) => {
-    //     const btnNames = Object.values(data.name);
-    // }
+    // getNames = this.data.map((elem) => {
+    //     elem = elem.name;
+    //     return elem;
+    // })
     
 
     render() {
         const {data} = this.state;
-        // const btns = this.state.dataTrial;
-        const {btnNames} = Object.values(data.name);
+        const btnNames = data.map((elem) => {
+            elem = elem.name;
+            return elem;
+        });
         
         const {displayOperations} = this.state;
-        // const {btnCreate} = this.btnCreate;
         
-
 
         return (
             <div>
-                {/* <Calc displayOperations={displayOperations} btnCreate={btnCreate}></Calc> */}
                 <Calc displayOperations={displayOperations} btnNames={btnNames}/>
-                
+                {btnNames}
             </div>
         );
     }
