@@ -1,25 +1,20 @@
+import { Fragment } from "react";
 
+import "./calc.css";
 
-import './calc.css';
-
-const Calc = ({displayOperations, btnNames}) => {
-    
-    const elements = btnNames.map((btnLabel) => {
+const Calc = ({ displayOperations, btnNames = [] }) => {
+  return (
+    <div>
+      <h1>{displayOperations}</h1>
+      {btnNames.map(({ name }) => {
         return (
-            <>
-                <button name={btnLabel}>
-                    {btnLabel}
-                </button>
-            </>
-        )
-    });
-    return (
-        <div>
-            <h1>{displayOperations}</h1>
-            {elements}
-        </div>
-        
-    )
-}
+          <Fragment key={name}>
+            <button name={name}>{name}</button>
+          </Fragment>
+        );
+      })}
+    </div>
+  );
+};
 
 export default Calc;
