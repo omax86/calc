@@ -1,20 +1,31 @@
 import { Fragment } from "react";
 
+import "../app/app";
+
 import "./calc.css";
 
-const Calc = ({ displayOperations, btnNames = [] }) => {
-  return (
-    <div>
-      <h1>{displayOperations}</h1>
-      {btnNames.map(({ name }) => {
-        return (
-          <Fragment key={name}>
-            <button name={name}>{name}</button>
-          </Fragment>
-        );
-      })}
-    </div>
-  );
+const Calc = ({ displayOperations, data = [], clickBtn }) => {
+
+	
+  	return (
+		<div className="calcContainer">
+			<div className="displayOperations">{displayOperations}</div>
+			<div className="btnContainer">
+				{data.map(({ name, btnSymbol, operator }) => {
+					return (
+						<Fragment key={name}>
+							<button 
+								className={name} 
+								name={name}
+								onClick={() => clickBtn(operator)}>
+								{btnSymbol}
+							</button>
+						</Fragment>
+					);
+				})}
+			</div>
+		</div>
+  	);
 };
 
 export default Calc;

@@ -1,4 +1,33 @@
-.calc {
+.calcContainer {
     margin: 50px auto;
-    max-width: 1000px;
+    width: 280px;
 }
+
+.displayOperations {
+    font-size: 3em;
+    text-align: end;
+    border-width: 1px;
+    border-color: black;
+}
+
+.btnContainer {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-width: 1px;
+    border-color: rgb(237, 6, 6);
+}
+
+button {
+    height: 70px;
+    width: 70px;
+    font-size: 2em;
+    border-width: 1px;
+    border-color: black;
+}
+
+button.zero {
+    width: 140px
+}
+
